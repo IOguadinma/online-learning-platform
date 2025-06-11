@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+<h1>Live Events Schedule</h1>
+<ul>
+  <% schedule.forEach(event => { %>
+    <li>
+      <strong><%= event.title %></strong><br />
+      Date: <%= event.date %> @ <%= event.time %><br />
+      <%= event.description %>
+    </li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

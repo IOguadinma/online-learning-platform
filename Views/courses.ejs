@@ -1,0 +1,8 @@
+<%- include('partials/header') %>
+<h1>Courses</h1>
+<ul>
+  <% courses.forEach(course => { %>
+    <li><strong><%= course.name %></strong> - <%= course.instructor %> - <%= course.duration %></li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<h1>Frequently Asked Questions</h1>
+<ul>
+  <% faqs.forEach(faq => { %>
+    <li>
+      <strong>Q:</strong> <%= faq.question %><br />
+      <strong>A:</strong> <%= faq.answer %>
+    </li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

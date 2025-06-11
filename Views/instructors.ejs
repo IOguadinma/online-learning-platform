@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<h1>Instructors</h1>
+<ul>
+  <% instructors.forEach(inst => { %>
+    <li>
+      <strong><%= inst.name %></strong><br />
+      Subjects: <%= inst.subjects %><br />
+      Email: <%= inst.email %><br />
+      Bio: <%= inst.bio %>
+    </li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

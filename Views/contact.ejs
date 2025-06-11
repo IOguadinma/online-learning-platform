@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<h2>Contact Us</h2>
+<p>If you have questions or feedback, reach out below.</p>
+
+<% if (typeof successMessage !== 'undefined' && successMessage) { %>
+  <div class="alert success"><%= successMessage %></div>
+<% } else if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+  <div class="alert error"><%= errorMessage %></div>
+<% } %>
+
+<form action="/contact" method="POST">
+  <label>Name:</label><br />
+  <input type="text" name="name" required /><br />
+  
+  <label>Email:</label><br />
+  <input type="email" name="email" required /><br />
+  
+  <label>Message:</label><br />
+  <textarea name="message" rows="5" required></textarea><br />
+  
+  <button type="submit">Send Message</button>
+</form>
+
+<%- include('partials/footer') %>
