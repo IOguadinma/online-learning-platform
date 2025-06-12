@@ -1,12 +1,13 @@
 import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+
+// Enable verbose mode for debugging
 sqlite3.verbose();
 
-const db = new sqlite3.Database('./Database/learning-platform.db', (err) => {
-  if (err) {
-    console.error('❌ Could not connect to database:', err.message);
-  } else {
-    console.log('✅ Connected to SQLite database');
-  }
+// Open the database connection
+const db = await open({
+  filename: './Database/learning-platform.db',
+  driver: sqlite3.Database
 });
 
 export default db;

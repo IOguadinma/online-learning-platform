@@ -1,13 +1,16 @@
-// ===== Import modules using ES Module syntax =====
+// NEW (ES Modules)
 import express from 'express';
 import path from 'path';
-import db from './Database/db.js'; // ✅ includes .js extension
+import db from './Database/db.js';
+import nodemailer from 'nodemailer';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// ===== Fix for __dirname (not available in ES Modules) =====
+
+// ===== Fix for __dirname in CommonJS =====
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 // ===== Initialize Express App =====
 const app = express();
@@ -18,8 +21,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'));
 
 // ===== Middleware =====
-app.use(express.static(path.join(__dirname, 'Public'))); // ✅ Serves CSS, JS, images, etc.
-app.use(express.urlencoded({ extended: true })); // Parses POST form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'Public')));
+
 
 // ===== ROUTES =====
 
@@ -88,7 +92,8 @@ app.post('/contact', (req, res) => {
   });
 });
 
-import nodemailer from 'nodemailer';
+
+
 
 // Create transporter
 const transporter = nodemailer.createTransport({
